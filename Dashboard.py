@@ -90,5 +90,8 @@ def run():
     )
 st.header('Bike Rental Dashboard 🚲')
 
+st.subheader('Daily Rentals')
+col1, col2, col3 = st.columns(3)
+
 if __name__ == "__main__":
     run()
