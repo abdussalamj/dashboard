@@ -61,18 +61,19 @@ def data_frame_demo():
         """
             % e.reason
         )
+
+
 def create_byseason_df(df):
-    byseason_df = bike_sharing_day_df.groupby(by="season").agg({
-    "cnt": ["sum", "mean"]
-    }, inplace=True)
+    byseason_df = pd.read_csv("csv file/byseason.csv")
     byseason_df.rename(index={
-    1: "Spring",
-    2: "Summer",
-    3: "Fall",
-    4: "Winter"
+        0: "Musim",
+        1: "Spring",
+        2: "Summer",
+        3: "Fall",
+        4: "Winter"
     }, inplace=True)
     byseason_df.rename(columns={
-    "cnt": "Jumlah Customer"
+        "Jumlah Customer.1": "Rata-rata Customer"
     }, inplace=True)
     return byseason_df
 
