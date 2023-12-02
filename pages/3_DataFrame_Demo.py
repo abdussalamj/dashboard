@@ -68,7 +68,7 @@ def data_frame_demo():
             % e.reason
         )
 def create_byseason_df(df):
-   byseason_df = pd.read_csv("byseason.csv")
+    byseason_df = pd.read_csv("byseason.csv")
     byseason_df.rename(index={
     0: "Musim",
     1: "Spring",
@@ -76,10 +76,10 @@ def create_byseason_df(df):
     3: "Fall",
     4: "Winter"
     }, inplace=True)
-byseason_df.rename(columns={
+    byseason_df.rename(columns={
     "Jumlah Customer.1": "Rata-rata Customer"
-}, inplace=True)
-return byseason_df
+    }, inplace=True)
+    return byseason_df
 
 
 st.set_page_config(page_title="DataFrame Demo", page_icon="📊")
