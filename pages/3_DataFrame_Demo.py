@@ -65,7 +65,7 @@ def data_frame_demo():
         )
 
 def create_byseason_df():
-    day_df = pd.read_csv("day.csv")
+    day_df = pd.read_csv("main/csv file/day.csv")
     byseason_df = day_df.groupby(by="season").agg({
         "cnt": ["sum", "mean"]
     }, inplace=True)
