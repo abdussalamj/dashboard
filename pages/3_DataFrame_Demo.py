@@ -64,7 +64,7 @@ def data_frame_demo():
 
 
 def create_byseason_df(df):
-    byseason_df = pd.read_csv("csv file/byseason.csv")
+    byseason_df = pd.read_csv("main/csv file/byseason.csv")
     byseason_df.rename(index={
         0: "Musim",
         1: "Spring",
