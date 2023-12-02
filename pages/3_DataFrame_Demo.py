@@ -238,14 +238,25 @@ st.subheader('Jumlah Penyewa Musiman')
 
 fig, ax = plt.subplots(figsize=(16, 8))
 
-seasonal_data = byseason_df.groupby('season')['cnt'].sum()
-season_names = ['Spring', 'Summer', 'Fall', 'Winter']
-color = ['blue', 'blue', 'red', 'blue']
-plt.bar(season_names, seasonal_data, color=color)
-plt.xlabel('Musim')
-plt.ylabel('Jumlah Sewa Harian')
-plt.title('Pengaruh Musim Terhadap Jumlah Customer')
-plt.show()
+sns.barplot(
+    x='season',
+    y='cnt',
+    data=byseason_df,
+    label='Casual',
+    color='tab:orange',
+    ax=ax
+)
+
+for index, row in season_rent_df.iterrows():
+    ax.text(index, row['registered'], str(row['registered']), ha='center', va='bottom', fontsize=12)
+    ax.text(index, row['casual'], str(row['casual']), ha='center', va='bottom', fontsize=12)
+
+ax.set_xlabel(None)
+ax.set_ylabel(None)
+ax.tick_params(axis='x', labelsize=20, rotation=0)
+ax.tick_params(axis='y', labelsize=15)
+ax.legend()
+st.pyplot(fig)
 
 
 # Membuah jumlah penyewaan berdasarkan kondisi cuaca
