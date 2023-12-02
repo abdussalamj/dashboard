@@ -64,21 +64,6 @@ def data_frame_demo():
             % e.reason
         )
 
-def create_byseason_df():
-    day_df = pd.read_csv("main/csv file/day.csv")
-    byseason_df = day_df.groupby(by="season").agg({
-        "cnt": ["sum", "mean"]
-    }, inplace=True)
-    byseason_df.rename(index={
-        1: "Spring",
-        2: "Summer",
-        3: "Fall",
-        4: "Winter"
-    }, inplace=True)
-    byseason_df.rename(columns={
-        "cnt": "Jumlah Customer"
-    }, inplace=True)
-    return byseason_df
 
 st.set_page_config(page_title="DataFrame Demo", page_icon="📊")
 st.markdown("# DataFrame Demo")
@@ -89,7 +74,5 @@ st.write(
 )
 
 data_frame_demo()
-
-create_byseason_df()
 
 show_code(data_frame_demo)
