@@ -238,7 +238,7 @@ st.subheader('Jumlah Penyewa Musiman')
 
 fig, ax = plt.subplots(figsize=(16, 8))
 
-seasonal_data = day_df.groupby('season')['cnt'].sum()
+seasonal_data = byseason_df.groupby('season')['cnt'].sum()
 season_names = ['Spring', 'Summer', 'Fall', 'Winter']
 color = ['blue', 'blue', 'red', 'blue']
 plt.bar(season_names, seasonal_data, color=color)
