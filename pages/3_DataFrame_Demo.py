@@ -87,5 +87,7 @@ st.write(
 )
 
 data_frame_demo()
+
 create_byseason_df()
+
 show_code(data_frame_demo)
