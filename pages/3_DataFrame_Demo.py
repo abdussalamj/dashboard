@@ -86,6 +86,6 @@ st.write(
 
 data_frame_demo()
 
-byseason_df()
+byseason(df)
 
 show_code(data_frame_demo)
