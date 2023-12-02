@@ -16,6 +16,8 @@ from urllib.error import URLError
 
 import altair as alt
 import pandas as pd
+import seaborn as sns
+import matplotlib as plt
 import streamlit as st
 from streamlit.hello.utils import show_code
 
@@ -85,7 +87,5 @@ st.write(
 )
 
 data_frame_demo()
-
-byseason(df)
 
 show_code(data_frame_demo)
