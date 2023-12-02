@@ -16,7 +16,7 @@ from urllib.error import URLError
 
 import altair as alt
 import pandas as pd
-
+import matplotlib.pyplot as plt
 import seaborn as sns
 
 sns.set(style='dark')
