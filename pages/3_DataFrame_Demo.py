@@ -6,9 +6,12 @@ import streamlit as st
 # Set style seaborn
 sns.set(style='dark')
 
-# Menyiapkan data day_df
+# Menyiapkan dataframe yang akan digunakan
 day_df = pd.read_csv("day.csv")
-day_df.head()
+hour_df = pd.read_csv("hour.csv")
+byseason_df = pd.read_csv("byseason.csv")
+byweathersit_df = pd.read_csv("byweathersit.csv")
+byhour_df = pd.read_csv("byhour.csv")
 
 # Menghapus kolom yang tidak diperlukan
 drop_col = ['windspeed']
@@ -51,6 +54,21 @@ def create_daily_rent_df(df):
         'count': 'sum'
     }).reset_index()
     return daily_rent_df
+
+# Menyiapakan byseason_df
+def create_byseason_df(df):
+  byseason_df = pd.read_csv("byseason.csv")
+  byseason_df.rename(index={
+    0: "Musim",
+    1: "Spring",
+    2: "Summer",
+    3: "Fall",
+    4: "Winter"
+  }, inplace=True)
+  byseason_df.rename(columns={
+    "Jumlah Customer.1": "Rata-rata Customer"
+  }, inplace=True)
+  return byseason_df
 
 # Menyiapkan daily_casual_rent_df
 def create_daily_casual_rent_df(df):
@@ -140,7 +158,7 @@ weekday_rent_df = create_weekday_rent_df(main_df)
 workingday_rent_df = create_workingday_rent_df(main_df)
 holiday_rent_df = create_holiday_rent_df(main_df)
 weather_rent_df = create_weather_rent_df(main_df)
-
+byseason_df = create_byseason_df(main_df)
 
 # Membuat Dashboard secara lengkap
 
@@ -215,6 +233,21 @@ ax.tick_params(axis='y', labelsize=15)
 ax.legend()
 st.pyplot(fig)
 
+# Membuat jumlah penyewaan berdasarkan season
+st.subheader('Jumlah Penyewa Musiman')
+
+fig, ax = plt.subplots(figsize=(16, 8))
+
+seasonal_data = day_df.groupby('season')['cnt'].sum()
+season_names = ['Spring', 'Summer', 'Fall', 'Winter']
+color = ['blue', 'blue', 'red', 'blue']
+plt.bar(season_names, seasonal_data, color=color)
+plt.xlabel('Musim')
+plt.ylabel('Jumlah Sewa Harian')
+plt.title('Pengaruh Musim Terhadap Jumlah Customer')
+plt.show()
+
+
 # Membuah jumlah penyewaan berdasarkan kondisi cuaca
 st.subheader('Weatherly Rentals')
 
@@ -237,6 +270,7 @@ ax.set_ylabel(None)
 ax.tick_params(axis='x', labelsize=20)
 ax.tick_params(axis='y', labelsize=15)
 st.pyplot(fig)
+
 
 # Membuat jumlah penyewaan berdasarkan weekday, working dan holiday
 st.subheader('Weekday, Workingday, and Holiday Rentals')
