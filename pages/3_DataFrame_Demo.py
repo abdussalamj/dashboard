@@ -218,64 +218,19 @@ for bar in ax.patches:
 
 st.pyplot(fig)
 
-# Membuat jumlah penyewaan berdasarkan weekday, working dan holiday
-st.subheader('Weekday, Workingday, and Holiday Rentals')
+# Membuat jumlah penyewaan berdasarkan jam
+st.subheader('Hourly Bike Sharing')
 
-fig, axes = plt.subplots(nrows=3, ncols=1, figsize=(15,10))
+sns.set_style("darkgrid")
+sns.lineplot(x="hr", y="cnt", data=hour_df, linewidth=2.5, ci=None)
+plt.title("Total Costumer in each Hour", fontsize=35)
+plt.xlabel('Hour', fontsize=30)
+plt.xticks(fontsize=25)
+plt.yticks(fontsize=20)
+plt.ylabel("Total Customer, fontsize=30")
+plt.annotate('(17.00) Maximum', xy=(17, 461.45))
+plt.annotate('(04.00) Minimum', xy=(4, 6.36))
 
-colors1=["tab:blue", "tab:orange"]
-colors2=["tab:blue", "tab:orange"]
-colors3=["tab:blue", "tab:orange", "tab:green", "tab:red", "tab:purple", "tab:brown", "tab:pink"]
-
-# Berdasarkan workingday
-sns.barplot(
-    x='workingday',
-    y='count',
-    data=workingday_rent_df,
-    palette=colors1,
-    ax=axes[0])
-
-for index, row in enumerate(workingday_rent_df['count']):
-    axes[0].text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
-
-axes[0].set_title('Number of Rents based on Working Day')
-axes[0].set_ylabel(None)
-axes[0].tick_params(axis='x', labelsize=15)
-axes[0].tick_params(axis='y', labelsize=10)
-
-# Berdasarkan holiday
-sns.barplot(
-  x='holiday',
-  y='count',
-  data=holiday_rent_df,
-  palette=colors2,
-  ax=axes[1])
-
-for index, row in enumerate(holiday_rent_df['count']):
-    axes[1].text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
-
-axes[1].set_title('Number of Rents based on Holiday')
-axes[1].set_ylabel(None)
-axes[1].tick_params(axis='x', labelsize=15)
-axes[1].tick_params(axis='y', labelsize=10)
-
-# Berdasarkan weekday
-sns.barplot(
-  x='weekday',
-  y='count',
-  data=weekday_rent_df,
-  palette=colors3,
-  ax=axes[2])
-
-for index, row in enumerate(weekday_rent_df['count']):
-    axes[2].text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
-
-axes[2].set_title('Number of Rents based on Weekday')
-axes[2].set_ylabel(None)
-axes[2].tick_params(axis='x', labelsize=15)
-axes[2].tick_params(axis='y', labelsize=10)
-
-plt.tight_layout()
 st.pyplot(fig)
 
-st.caption('Copyright (c) Afif Ramadhan 2023')
+st.caption('Copyright (c) Jakfar Abdussalam 2023')
