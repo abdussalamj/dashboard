@@ -186,6 +186,13 @@ plt.yticks(fontsize=20)
 plt.xlabel('Musim', fontsize=30)
 plt.ylabel('Jumlah Sewa Harian', fontsize=30)
 plt.title('Pengaruh Musim Terhadap Jumlah Customer', fontsize=35)
+for bar in ax.patches:
+    value = bar.get_height()
+    text = f'{value}'
+    text_x = bar.get_x() + bar.get_width() / 2
+    text_y = bar.get_y() + value
+    ax.text(text_x, text_y, text, ha='center',color='r',size=12)
+
 st.pyplot(fig)
 
 # Membuah jumlah penyewaan berdasarkan kondisi cuaca
