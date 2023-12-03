@@ -233,10 +233,10 @@ ax.plot(
 plt.xticks(fontsize=25)
 plt.yticks(fontsize=20)
 plt.xlabel('Hour', fontsize=30)
-plt.ylabel('Total Customer', fontsize=30)
-plt.title('Total Customer in each Hour', fontsize=35)
-plt.annotate('(17.00) Maximum', xy=(17, 461.45), fontsize=20)
-plt.annotate('(04.00) Minimum', xy=(4, 6.36), fontsize=20)
+plt.ylabel('Average Customer', fontsize=30)
+plt.title('Average Customer for each Hour', fontsize=35)
+plt.annotate('(17.00) Maximum', xy=(17, 461.45), fontsize=25)
+plt.annotate('(04.00) Minimum', xy=(4, 6.36), fontsize=25)
 
 st.pyplot(fig)
 
