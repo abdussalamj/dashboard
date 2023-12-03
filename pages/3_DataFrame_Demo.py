@@ -191,7 +191,7 @@ for bar in ax.patches:
     text = f'{value}'
     text_x = bar.get_x() + bar.get_width() / 2
     text_y = bar.get_y() + value
-    ax.text(text_x, text_y, text, ha='center',color='r',size=20)
+    ax.text(text_x, text_y, text, ha='center',size=25)
 
 st.pyplot(fig)
 
