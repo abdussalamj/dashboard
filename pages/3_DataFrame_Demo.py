@@ -97,7 +97,7 @@ def create_weathersit_rent_df(df):
 
 def create_hourly_rent_df(df):
   hourly_rent_df = hour_df.groupby(by='hr').agg({
-    'cnt': ['sum', 'mean']
+    'cnt': 'mean'
   })
   hourly_rent_df.rename(columns={
     "cnt": "Total Customer"
