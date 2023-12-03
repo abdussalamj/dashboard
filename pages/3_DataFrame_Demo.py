@@ -200,7 +200,7 @@ st.subheader('Weatherly Bike Sharing')
 
 fig, ax = plt.subplots(figsize=(16, 8))
 
-seasonal_data = bike_sharing_day_df.groupby('weathersit')['cnt'].sum()
+seasonal_data = day_df.groupby('weathersit')['cnt'].sum()
 season_names = ['Clear', 'Mist', 'Light Snow']
 color = ['red', 'blue', 'blue']
 plt.bar(season_names, seasonal_data, color=color)
