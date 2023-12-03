@@ -20,7 +20,7 @@ def create_daily_rent_df(df):
   daily_rent_df.rename(columns={
     "cnt": "Total Customer"
   }, inplace=True)
-    return daily_rent_df
+  return daily_rent_df
 
 # Menyiapkan monthly_rent_df
 def create_montly_rent_df(df):
