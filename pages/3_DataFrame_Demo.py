@@ -227,12 +227,14 @@ ax.plot(
     hourly_rent_df['Total Customer'],
     marker='o', 
     linewidth=4,
-    color='tab:green'
+    color='tab:blue'
 )
 
-ax.tick_params(axis='x', labelsize=25, rotation=45)
-ax.tick_params(axis='y', labelsize=20)
-
+plt.xticks(fontsize=25)
+plt.yticks(fontsize=20)
+plt.xlabel('Hour', fontsize=30)
+plt.ylabel('Total Customer', fontsize=30)
+plt.title('Total Customer in each Hour', fontsize=35)
 st.pyplot(fig)
 
 st.caption('Copyright (c) Jakfar Abdussalam 2023')
