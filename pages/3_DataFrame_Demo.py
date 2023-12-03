@@ -135,7 +135,7 @@ hourly_rent_df = create_hourly_rent_df(main_df)
 # Membuat Dashboard secara lengkap
 
 # Membuat judul
-st.header('Bike Sharing Dashboard  ')
+st.header('Bike Sharing Dashboard')
 
 # Membuat jumlah penyewaan harian
 st.subheader('Total Customer')
@@ -154,7 +154,7 @@ with col3:
     st.metric('Total', value= daily_rent)
 
 # Membuat jumlah penyewaan bulanan
-st.subheader('Monthly Rentals')
+st.subheader('Monthly Bike Sharing')
 fig, ax = plt.subplots(figsize=(24, 12))
 ax.plot(
     monthly_rent_df.index,
@@ -173,7 +173,7 @@ st.pyplot(fig)
 
 
 # Membuat jumlah penyewaan berdasarkan season
-st.subheader('Seasonly Rental')
+st.subheader('Seasonly Bike Sharing')
 
 fig, ax = plt.subplots(figsize=(16, 8))
 
@@ -183,9 +183,9 @@ color = ['blue', 'blue', 'red', 'blue']
 plt.bar(season_names, seasonal_data, color=color,)
 plt.xticks(fontsize=25)
 plt.yticks(fontsize=20)
-plt.xlabel('Musim', fontsize=30)
-plt.ylabel('Jumlah Sewa Harian', fontsize=30)
-plt.title('Pengaruh Musim Terhadap Jumlah Customer', fontsize=35)
+plt.xlabel('Season', fontsize=30)
+plt.ylabel('Total Customer', fontsize=30)
+plt.title('Total Customer in each Season', fontsize=35)
 for bar in ax.patches:
     value = bar.get_height()
     text = f'{value}'
