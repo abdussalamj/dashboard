@@ -181,8 +181,8 @@ seasonal_data = day_df.groupby('season')['cnt'].sum()
 season_names = ['Spring', 'Summer', 'Fall', 'Winter']
 color = ['blue', 'blue', 'red', 'blue']
 plt.bar(season_names, seasonal_data, color=color)
-plt.xlabel('Musim', fontsize=15)
-plt.ylabel('Jumlah Sewa Harian', fontsize=15)
+plt.xlabel('Musim', fontsize=20)
+plt.ylabel('Jumlah Sewa Harian', fontsize=20)
 plt.title('Pengaruh Musim Terhadap Jumlah Customer')
 st.pyplot(fig)
 
