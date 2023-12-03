@@ -160,7 +160,7 @@ ax.plot(
     monthly_rent_df.index,
     monthly_rent_df['Total Customer'],
     marker='o', 
-    linewidth=2,
+    linewidth=4,
     color='tab:green'
 )
 
@@ -177,7 +177,7 @@ st.subheader('Seasonly Rental')
 
 fig, ax = plt.subplots(figsize=(16, 8))
 
-seasonal_data = day_df.groupby('season')['count'].sum()
+seasonal_data = day_df.groupby('season')['cnt'].sum()
 season_names = ['Spring', 'Summer', 'Fall', 'Winter']
 color = ['blue', 'blue', 'red', 'blue']
 plt.bar(season_names, seasonal_data, color=color)
