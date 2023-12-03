@@ -221,23 +221,14 @@ st.pyplot(fig)
 # Membuat jumlah penyewaan berdasarkan jam
 st.subheader('Hourly Bike Sharing')
 
-fig, ax = plt.subplots(figsize=(24, 12))
-ax.plot(
-    hourly_rent_df.index,
-    hourly_rent_df['Total Customer'],
-    marker='o', 
-    linewidth=4,
-    color='tab:blue'
-)
-
-plt.xticks(fontsize=25)
-plt.yticks(fontsize=20)
-plt.xlabel('Hour', fontsize=30)
-plt.ylabel('Total Customer', fontsize=30)
-plt.title('Total Customer in each Hour', fontsize=35)
-plt.annotate('(17.00) Maximum', xy=(17, 461.45), fontsize=20)
-plt.annotate('(04.00) Minimum', xy=(4, 6.36), fontsize=20)
-
+sns.set_style("darkgrid")
+sns.lineplot(x="hr", y="cnt", data=bike_sharing_hour_df, linewidth=2.5, ci=None)
+plt.title("Frekuensi Jumlah Sewa Sepeda Harian Berdasarkan Jam")
+plt.xlabel("Jam")
+plt.ylabel("Jumlah Sewa Sepeda Harian")
+plt.annotate('(17.00) Maximum', xy=(17, 461.45))
+plt.annotate('(04.00) Minimum', xy=(4, 6.36))
+plt.show()
 st.pyplot(fig)
 
 st.caption('Copyright (c) Jakfar Abdussalam 2023')
