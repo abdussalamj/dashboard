@@ -164,7 +164,7 @@ ax.plot(
     color='tab:green'
 )
 
-for index, row in enumerate(monthly_rent_df['count']):
+for index, row in enumerate(monthly_rent_df['Total Customer']):
     ax.text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
 
 ax.tick_params(axis='x', labelsize=25, rotation=45)
