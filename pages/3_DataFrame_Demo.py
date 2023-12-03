@@ -235,6 +235,9 @@ plt.yticks(fontsize=20)
 plt.xlabel('Hour', fontsize=30)
 plt.ylabel('Total Customer', fontsize=30)
 plt.title('Total Customer in each Hour', fontsize=35)
+plt.annotate('(17.00) Maximum', xy=(17, 461.45))
+plt.annotate('(04.00) Minimum', xy=(4, 6.36))
+
 st.pyplot(fig)
 
 st.caption('Copyright (c) Jakfar Abdussalam 2023')
