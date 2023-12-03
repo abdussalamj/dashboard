@@ -81,7 +81,7 @@ def create_seasonly_sharing_df(df):
 
 # Menyiapkan weathersit_sharing_df
 def create_weathersit_sharing_df(df):
-  weathersit_rent_df = day_df.groupby(by='weathersit').agg({
+  weathersit_sharing_df = day_df.groupby(by='weathersit').agg({
     'cnt': ['sum', 'mean']
   })
   weathersit_sharing_df.rename(index={
