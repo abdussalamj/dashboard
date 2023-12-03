@@ -135,7 +135,7 @@ hourly_rent_df = create_hourly_rent_df(main_df)
 # Membuat Dashboard secara lengkap
 
 # Membuat judul
-st.header('Bike Rental Dashboard 🚲')
+st.header('Bike Sharing Dashboard  ')
 
 # Membuat jumlah penyewaan harian
 st.subheader('Total Customer')
@@ -181,7 +181,7 @@ seasonal_data = day_df.groupby('season')['cnt'].sum()
 season_names = ['Spring', 'Summer', 'Fall', 'Winter']
 color = ['blue', 'blue', 'red', 'blue']
 plt.bar(season_names, seasonal_data, color=color)
-plt.xlabel('Musim')
+plt.xlabel('Musim', figsize=10)
 plt.ylabel('Jumlah Sewa Harian')
 plt.title('Pengaruh Musim Terhadap Jumlah Customer')
 st.pyplot(fig)
