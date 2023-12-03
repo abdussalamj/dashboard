@@ -222,7 +222,7 @@ st.pyplot(fig)
 st.subheader('Hourly Bike Sharing')
 
 sns.set_style("darkgrid")
-sns.lineplot(x="hr", y="cnt", data=bike_sharing_hour_df, linewidth=2.5, ci=None)
+sns.lineplot(x="hr", y="cnt", data=hour_df, linewidth=2.5, ci=None)
 plt.title("Frekuensi Jumlah Sewa Sepeda Harian Berdasarkan Jam")
 plt.xlabel("Jam")
 plt.ylabel("Jumlah Sewa Sepeda Harian")
