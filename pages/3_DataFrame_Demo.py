@@ -158,7 +158,7 @@ st.subheader('Monthly Rentals')
 fig, ax = plt.subplots(figsize=(24, 8))
 ax.plot(
     monthly_rent_df.index,
-    monthly_rent_df['cnt'],
+    monthly_rent_df['Total Customer'],
     marker='o', 
     linewidth=2,
     color='tab:green'
