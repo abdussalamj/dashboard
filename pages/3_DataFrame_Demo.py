@@ -13,14 +13,31 @@ hour_df = pd.read_csv("hour.csv")
 # Menyiapkan daily_rent_df
 def create_daily_rent_df(df):
   daily_rent_df = df.groupby(by='dteday').agg({
-    'casual': 'sum',
-    'registered' : 'sum',
     'cnt' : 'sum'
   })
   daily_rent_df.rename(columns={
     "cnt": "Total Customer"
   }, inplace=True)
   return daily_rent_df
+
+def create_daily_rent_casual_df(df):
+  daily_rent_casual_df = df.groupby(by='dteday').agg({
+    'casual': 'sum',
+  })
+  daily_rent_casual_df.rename(columns={
+    'casual': "Casual Customer"
+  }, inplace=True)
+  return daily_rent_casual_df
+
+def create_daily_rent_registered_df(df):
+  daily_rent_registered_df = df.groupby(by='dteday').agg({
+    'registered': 'sum',
+  })
+  daily_rent_registered_df.rename(columns={
+    'registered': "Registered Customer"
+  }, inplace=True)
+  return daily_rent_registered_df
+
 
 # Menyiapkan monthly_rent_df
 def create_monthly_rent_df(df):
@@ -108,6 +125,8 @@ main_df = day_df[(day_df['dteday'] >= str(start_date)) &
 
 # Menyiapkan berbagai dataframe
 daily_rent_df = create_daily_rent_df(main_df)
+daily_rent_casual_df = create_daily_rent_casual_df(main_df)
+daily_rent_registered_df = create_daily_rent_registered_df(main_df)
 monthly_rent_df = create_monthly_rent_df(main_df)
 seasonly_rent_df = create_seasonly_rent_df(main_df)
 weathersit_rent_df = create_weathersit_rent_df(main_df)
