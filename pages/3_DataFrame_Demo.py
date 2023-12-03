@@ -138,30 +138,30 @@ hourly_rent_df = create_hourly_rent_df(main_df)
 st.header('Bike Rental Dashboard 🚲')
 
 # Membuat jumlah penyewaan harian
-st.subheader('Daily Rentals')
+st.subheader('Total Customer')
 col1, col2, col3 = st.columns(3)
 
 with col1:
     daily_rent_registered = daily_rent_registered_df['Registered Customer'].sum()
-    st.metric('Registered Customer', value= daily_rent_registered)
+    st.metric('Registered', value= daily_rent_registered)
 
 with col2:
     daily_rent_casual = daily_rent_casual_df['Casual Customer'].sum()
-    st.metric('Casual Customer', value= daily_rent_casual)
+    st.metric('Casual', value= daily_rent_casual)
  
 with col3:
     daily_rent = daily_rent_df['Total Customer'].sum()
-    st.metric('Total Customer', value= daily_rent)
+    st.metric('Total', value= daily_rent)
 
 # Membuat jumlah penyewaan bulanan
 st.subheader('Monthly Rentals')
 fig, ax = plt.subplots(figsize=(24, 8))
 ax.plot(
     monthly_rent_df.index,
-    monthly_rent_df['count'],
+    monthly_rent_df['cnt'],
     marker='o', 
     linewidth=2,
-    color='tab:blue'
+    color='tab:green'
 )
 
 for index, row in enumerate(monthly_rent_df['count']):
