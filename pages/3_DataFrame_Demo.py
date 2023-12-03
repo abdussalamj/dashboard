@@ -180,7 +180,8 @@ fig, ax = plt.subplots(figsize=(16, 8))
 seasonal_data = day_df.groupby('season')['cnt'].sum()
 season_names = ['Spring', 'Summer', 'Fall', 'Winter']
 color = ['blue', 'blue', 'red', 'blue']
-plt.bar(season_names, seasonal_data, color=color, fontsize=20)
+plt.bar(season_names, seasonal_data, color=color,)
+plt.xticks(fontsize=20)
 plt.xlabel('Musim', fontsize=25)
 plt.ylabel('Jumlah Sewa Harian', fontsize=25)
 plt.title('Pengaruh Musim Terhadap Jumlah Customer', fontsize=30)
