@@ -142,7 +142,7 @@ st.subheader('Daily Rentals')
 col1, col2, col3 = st.columns(3)
 
 with col1:
-    daily_rent_registered = daily_rent_registered_df['registered'].sum()
+    daily_rent_registered = daily_rent_registered_df['Registered Customer'].sum()
     st.metric('Registered Customer', value= daily_rent_registered)
 
 with col2:
