@@ -155,7 +155,7 @@ with col3:
 
 # Membuat jumlah penyewaan bulanan
 st.subheader('Monthly Rentals')
-fig, ax = plt.subplots(figsize=(24, 8))
+fig, ax = plt.subplots(figsize=(24, 12))
 ax.plot(
     monthly_rent_df.index,
     monthly_rent_df['Total Customer'],
@@ -171,42 +171,9 @@ ax.tick_params(axis='x', labelsize=25, rotation=45)
 ax.tick_params(axis='y', labelsize=20)
 st.pyplot(fig)
 
-# Membuat jumlah penyewaan berdasarkan season
-st.subheader('Seasonly Rentals')
-
-fig, ax = plt.subplots(figsize=(16, 8))
-
-sns.barplot(
-    x='season',
-    y='registered',
-    data=season_rent_df,
-    label='Registered',
-    color='tab:blue',
-    ax=ax
-)
-
-sns.barplot(
-    x='season',
-    y='casual',
-    data=season_rent_df,
-    label='Casual',
-    color='tab:orange',
-    ax=ax
-)
-
-for index, row in season_rent_df.iterrows():
-    ax.text(index, row['registered'], str(row['registered']), ha='center', va='bottom', fontsize=12)
-    ax.text(index, row['casual'], str(row['casual']), ha='center', va='bottom', fontsize=12)
-
-ax.set_xlabel(None)
-ax.set_ylabel(None)
-ax.tick_params(axis='x', labelsize=20, rotation=0)
-ax.tick_params(axis='y', labelsize=15)
-ax.legend()
-st.pyplot(fig)
 
 # Membuat jumlah penyewaan berdasarkan season
-st.subheader('Jumlah Penyewa Musiman')
+st.subheader('Seasonly Rental')
 
 fig, ax = plt.subplots(figsize=(16, 8))
 
