@@ -224,7 +224,7 @@ st.subheader('Hourly Bike Sharing')
 fig, ax = plt.subplots(figsize=(24, 12))
 ax.plot(
     hourly_rent_df.index,
-    hourly_rent_df['Total Customer'].mean(),
+    hourly_rent_df['Total Customer'],
     marker='o', 
     linewidth=4,
     color='tab:blue'
