@@ -146,11 +146,11 @@ with col1:
     st.metric('Registered Customer', value= daily_rent_registered)
 
 with col2:
-    daily_rent_casual = daily_rent_casual_df['casual'].sum()
+    daily_rent_casual = daily_rent_casual_df['Casual Customer'].sum()
     st.metric('Casual Customer', value= daily_rent_casual)
  
 with col3:
-    daily_rent_total = daily_rent_df['count'].sum()
+    daily_rent_total = daily_rent_df['Total Customer'].sum()
     st.metric('Total Customer', value= daily_rent)
 
 # Membuat jumlah penyewaan bulanan
