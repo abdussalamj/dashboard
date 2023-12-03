@@ -196,28 +196,27 @@ for bar in ax.patches:
 st.pyplot(fig)
 
 # Membuah jumlah penyewaan berdasarkan kondisi cuaca
-st.subheader('Weatherly Rentals')
+st.subheader('Weatherly Bike Sharing')
 
 fig, ax = plt.subplots(figsize=(16, 8))
 
-colors=["tab:blue", "tab:orange", "tab:green"]
+seasonal_data = bike_sharing_day_df.groupby('weathersit')['cnt'].sum()
+season_names = ['Clear', 'Mist', 'Light Snow']
+color = ['red', 'blue', 'blue']
+plt.bar(season_names, seasonal_data, color=color)
+plt.xticks(fontsize=25)
+plt.yticks(fontsize=20)
+plt.xlabel('Weathersit', fontsize=30)
+plt.ylabel('Total Customer', fontsize=30)
+plt.title('Total Customer in each Wheater', fontsize=35)
+for bar in ax.patches:
+    value = bar.get_height()
+    text = f'{value}'
+    text_x = bar.get_x() + bar.get_width() / 2
+    text_y = bar.get_y() + value
+    ax.text(text_x, text_y, text, ha='center',size=25)
 
-sns.barplot(
-    x=weather_rent_df.index,
-    y=weather_rent_df['count'],
-    palette=colors,
-    ax=ax
-)
-
-for index, row in enumerate(weather_rent_df['count']):
-    ax.text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
-
-ax.set_xlabel(None)
-ax.set_ylabel(None)
-ax.tick_params(axis='x', labelsize=20)
-ax.tick_params(axis='y', labelsize=15)
 st.pyplot(fig)
-
 
 # Membuat jumlah penyewaan berdasarkan weekday, working dan holiday
 st.subheader('Weekday, Workingday, and Holiday Rentals')
