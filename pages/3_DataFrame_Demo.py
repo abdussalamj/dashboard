@@ -23,7 +23,7 @@ def create_daily_rent_df(df):
   return daily_rent_df
 
 # Menyiapkan monthly_rent_df
-def create_montly_rent_df(df):
+def create_monthly_rent_df(df):
   monthly_rent_df = day_df.groupby(by='mnth').agg({
     'cnt': 'sum'
   })
