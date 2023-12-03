@@ -241,3 +241,6 @@ st.pyplot(fig)
 
 
 st.caption('Copyright (c) Jakfar Abdussalam 2023')
+
+
+# link streamlit cloud(https://dashboard-5t3yhjy8phfp7jchvhfbtk.streamlit.app/)
