@@ -231,7 +231,7 @@ ax.plot(
 )
 
 for index, row in enumerate(hourly_rent_df['Total Customer']):
-    ax.text(index, row + 1, str(row), ha='center', va='center', fontsize=20, rotation=-45)
+    ax.text(index, row + 1, ha='center', va='center', fontsize=20, rotation=-45)
 
 ax.tick_params(axis='x', labelsize=25, rotation=45)
 ax.tick_params(axis='y', labelsize=20)
